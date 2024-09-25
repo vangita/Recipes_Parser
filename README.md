@@ -67,13 +67,14 @@ recipes_scraper/
 ├── .idea/                  # IDE settings (optional)
 ├── .venv/                  # Virtual environment
 ├── main.py                 # Entry point for scraping
-├── parser.py               # Queries and analysis
+├── parser.py               # parsing
+├── data_fetching.py        # database steup and queries
 ├── README.md               # This file
 ├── requirements.txt        # Python dependencies
 └── .gitignore              # Files ignored by Git
 ```
 
-## Queries in `parser.py`
+## Queries in `data_fetching.py`
 
 - **Average ingredients per recipe**: Prints the average number of ingredients.
 - **Average preparation steps per recipe**: Displays the average number of preparation steps.
