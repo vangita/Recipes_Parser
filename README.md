@@ -54,15 +54,9 @@ This project is a web scraper for gathering recipes from the Georgian website [k
 
 ## Usage
 
-1. Run the scraper:
+1. To analyze the data:
     ```bash
     python main.py
-    ```
-   This will scrape the recipes and store them in the MongoDB database.
-
-2. To analyze the data:
-    ```bash
-    python parser.py
     ```
 
 ## Project Structure
