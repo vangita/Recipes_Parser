@@ -68,7 +68,7 @@ recipes_scraper/
 ├── .venv/                  # Virtual environment
 ├── main.py                 # Entry point for scraping
 ├── parser.py               # parsing
-├── data_fetching.py        # database steup and queries
+├── data_fetching.py        # database setup and queries
 ├── README.md               # This file
 ├── requirements.txt        # Python dependencies
 └── .gitignore              # Files ignored by Git
