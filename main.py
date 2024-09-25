@@ -26,26 +26,26 @@ async def full_recipes(session, recipes):
 
 async def main():
     async with aiohttp.ClientSession() as session:
-        if collection.count_documents({})!=0:
-            average_ingredients = get_average_recipe_count()
-            print(f"Average number of ingredients per recipe: {average_ingredients}")
-
-            average_steps = get_average_steps_to_cook()
-            print(f"Average number of steps per recipe: {average_steps}")
-
-            recipe_most_portions = get_recipe_with_most_portion()
-            print(f"Recipe with the most portions: {recipe_most_portions['title']} - {recipe_most_portions['recipe_link']}")
-
-            author_most_recipes = get_author_with_most_recipes()
-            print(f"Author with the most recipes: {author_most_recipes}")
-
-
+       
         page_tasks = [asyncio.create_task(fetch_page(session, page)) for page in range(1, 4)]
         page_results = await asyncio.gather(*page_tasks)
 
         all_recipes = [recipe for page_recipes in page_results for recipe in page_recipes]
 
         await full_recipes(session, all_recipes)
+      
+        if collection.count_documents({})!=0:
+              average_ingredients = get_average_recipe_count()
+              print(f"Average number of ingredients per recipe: {average_ingredients}")
+  
+              average_steps = get_average_steps_to_cook()
+              print(f"Average number of steps per recipe: {average_steps}")
+  
+              recipe_most_portions = get_recipe_with_most_portion()
+              print(f"Recipe with the most portions: {recipe_most_portions['title']} - {recipe_most_portions['recipe_link']}")
+  
+              author_most_recipes = get_author_with_most_recipes()
+              print(f"Author with the most recipes: {author_most_recipes}")
 
 if __name__ == "__main__":
     start_time = time.perf_counter()
