@@ -1,35 +1,93 @@
-Recipe Scraper
-This project is a web scraper designed to fetch and store recipes from kulinaria.ge into a MongoDB database. It uses asynchronous requests to efficiently gather data and the Beautiful Soup library to parse HTML content.
+# Recipes Scraper
 
-Table of Contents
-Features
-Installation
-Usage
-Database Queries
-License
-Features
-Fetches a list of dessert recipes from the specified category on Kulinaria.
-Extracts detailed information for each recipe, including:
-Ingredients
-Preparation steps
-Portion size
-Subcategory link
-Stores the recipes in a MongoDB database.
-Provides functions to retrieve statistics from the database, such as:
-Average number of ingredients per recipe
-Average number of steps to cook
-Recipe with the most portions
-Author with the most recipes
-Installation
-Clone the repository.
-Install the necessary libraries.
-Set up MongoDB on your local machine.
-Usage
-Run the main script to start the scraping process.
-After completion, the script will print various statistics about the recipes collected.
-Database Queries
-You can use the provided functions to retrieve specific statistics from the MongoDB database, such as average ingredient counts, average cooking steps, and top recipes and authors.
+This project is a web scraper for gathering recipes from the Georgian website [kulinaria.ge](https://kulinaria.ge), processing them, and storing them in a MongoDB database. It also includes several queries for analyzing the collected data.
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Features
+- Scrapes recipe data, including:
+  - Title
+  - URL
+  - Category
+  - Subcategory
+  - Image
+  - Short description
+  - Author
+  - Servings
+  - Ingredients
+  - Preparation steps
+- Stores the scraped data in a MongoDB database.
+- Performs statistical analysis:
+  - Average ingredients per recipe.
+  - Average preparation steps per recipe.
+  - Recipe with the most servings.
+  - Author with the most published recipes.
 
+## Installation
+
+### Requirements
+- Python 3.x
+- MongoDB
+- Required Python packages in `requirements.txt`
+
+### Setup Instructions
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/recipes_scraper.git
+    ```
+2. Navigate into the project directory:
+    ```bash
+    cd recipes_scraper
+    ```
+3. Create and activate a virtual environment:
+    ```bash
+    python -m venv .venv
+    source .venv/bin/activate  # For Linux/Mac
+    .\.venv\Scripts\activate   # For Windows
+    ```
+4. Install the dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### MongoDB Setup
+1. Ensure MongoDB is installed and running locally or on a cloud service.
+2. Modify the default MongoDB connection string in the code if necessary.
+
+## Usage
+
+1. Run the scraper:
+    ```bash
+    python main.py
+    ```
+   This will scrape the recipes and store them in the MongoDB database.
+
+2. To analyze the data:
+    ```bash
+    python parser.py
+    ```
+
+## Project Structure
+
+```
+recipes_scraper/
+│
+├── .idea/                  # IDE settings (optional)
+├── .venv/                  # Virtual environment
+├── main.py                 # Entry point for scraping
+├── parser.py               # Queries and analysis
+├── README.md               # This file
+├── requirements.txt        # Python dependencies
+└── .gitignore              # Files ignored by Git
+```
+
+## Queries in `parser.py`
+
+- **Average ingredients per recipe**: Prints the average number of ingredients.
+- **Average preparation steps per recipe**: Displays the average number of preparation steps.
+- **Recipe with the most servings**: Shows the recipe with the highest serving size.
+- **Author with the most published recipes**: Finds the author with the most recipes.
+
+## Contributing
+Feel free to contribute by submitting pull requests or reporting issues.
+
+## License
+This project is licensed under the MIT License.
